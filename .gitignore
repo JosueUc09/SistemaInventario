@@ -13,7 +13,6 @@ TestResults/
 *.log
 
 # Configuración privada
-appsettings.json
 .env
 .env.*
 !.env.example
