@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="InventarioEscolar.Views.AuditView">
+  <Grid RowDefinitions="Auto,*">
+    <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,16">
+      <TextBox x:Name="SearchBox" Width="430" HorizontalAlignment="Left"
+               PlaceholderText="Buscar por usuario, módulo, acción o equipo..." TextChanged="SearchBox_OnTextChanged" />
+      <Button Grid.Column="1" Classes="secondary" Content="Actualizar" Click="Refresh_OnClick" />
+    </Grid>
+    <Border Grid.Row="1" Classes="card" Padding="0">
+      <Grid RowDefinitions="*,Auto">
+        <DataGrid x:Name="AuditGrid" AutoGenerateColumns="False" IsReadOnly="True">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}" Width="160" />
+            <DataGridTextColumn Header="Usuario" Binding="{Binding Usuario}" Width="150" />
+            <DataGridTextColumn Header="Módulo" Binding="{Binding Modulo}" Width="125" />
+            <DataGridTextColumn Header="Acción" Binding="{Binding Accion}" Width="125" />
+            <DataGridTextColumn Header="Registro" Binding="{Binding Registro}" Width="115" />
+            <DataGridTextColumn Header="Equipo" Binding="{Binding Equipo}" Width="150" />
+            <DataGridTextColumn Header="Cambios" Binding="{Binding Cambios}" Width="*" />
+          </DataGrid.Columns>
+        </DataGrid>
+        <Border Grid.Row="1" Background="#F5F7F6" Padding="16">
+          <TextBlock x:Name="CountText" Foreground="#657069" />
+        </Border>
+      </Grid>
+    </Border>
+  </Grid>
+</UserControl>

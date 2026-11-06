@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="InventarioEscolar.Views.AssetEditorWindow"
+        Title="Activo" Width="650" Height="660" CanResize="False"
+        WindowStartupLocation="CenterOwner">
+  <ScrollViewer>
+    <StackPanel Margin="30" Spacing="11">
+      <TextBlock x:Name="TitleText" Text="Agregar activo" FontSize="24" FontWeight="Bold" />
+      <TextBlock Text="Complete la información del activo institucional." Foreground="#657069" Margin="0,0,0,8" />
+
+      <Grid ColumnDefinitions="*,*" ColumnSpacing="15" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+        <TextBlock Text="Número de serie" FontWeight="SemiBold" />
+        <TextBlock Grid.Column="1" Text="Número de activo" FontWeight="SemiBold" />
+        <TextBox Grid.Row="1" x:Name="SerieBox" PlaceholderText="Ej. SN-001" />
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="ActivoBox" PlaceholderText="Ej. ACT-001" />
+
+        <TextBlock Grid.Row="2" Text="Nombre" FontWeight="SemiBold" Margin="0,12,0,0" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Cantidad" FontWeight="SemiBold" Margin="0,12,0,0" />
+        <TextBox Grid.Row="3" x:Name="NombreBox" PlaceholderText="Nombre del equipo" />
+        <NumericUpDown Grid.Row="3" Grid.Column="1" x:Name="CantidadBox" Minimum="1" Maximum="10000" Value="1" />
+
+        <TextBlock Grid.Row="4" Text="Categoría" FontWeight="SemiBold" Margin="0,12,0,0" />
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="Ubicación" FontWeight="SemiBold" Margin="0,12,0,0" />
+        <ComboBox Grid.Row="5" x:Name="CategoriaCombo" DisplayMemberBinding="{Binding Nombre}" />
+        <ComboBox Grid.Row="5" Grid.Column="1" x:Name="UbicacionCombo" DisplayMemberBinding="{Binding Nombre}" />
+
+        <TextBlock Grid.Row="6" Text="Estado" FontWeight="SemiBold" Margin="0,12,0,0" />
+        <ComboBox Grid.Row="7" x:Name="EstadoCombo" DisplayMemberBinding="{Binding Nombre}" />
+      </Grid>
+
+      <TextBlock Text="Descripción" FontWeight="SemiBold" Margin="0,7,0,0" />
+      <TextBox x:Name="DescripcionBox" PlaceholderText="Marca, modelo y observaciones" AcceptsReturn="True" Height="82" TextWrapping="Wrap" />
+      <TextBlock x:Name="StatusText" Foreground="#C62828" TextWrapping="Wrap" MinHeight="20" />
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0,10,0,0">
+        <Button Classes="secondary" Content="Cancelar" Click="Cancel_OnClick" />
+        <Button Classes="primary" Content="Guardar" Click="Save_OnClick" />
+      </StackPanel>
+    </StackPanel>
+  </ScrollViewer>
+</Window>

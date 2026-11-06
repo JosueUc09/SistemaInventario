@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="InventarioEscolar.Views.UsersView">
+  <Grid RowDefinitions="Auto,*">
+    <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,16">
+      <TextBox x:Name="SearchBox" Width="420" HorizontalAlignment="Left" PlaceholderText="Buscar usuario o correo..."
+               TextChanged="SearchBox_OnTextChanged" />
+      <Button Grid.Column="1" Classes="primary" Content="＋ Agregar usuario" Click="Add_OnClick" />
+    </Grid>
+    <Border Grid.Row="1" Classes="card" Padding="0">
+      <Grid RowDefinitions="*,Auto">
+        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="ID Supabase" Binding="{Binding Id}" Width="235" />
+            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+            <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" Width="*" />
+            <DataGridTextColumn Header="Rol" Binding="{Binding Role.Nombre}" Width="170" />
+            <DataGridCheckBoxColumn Header="Activo" Binding="{Binding Activo}" Width="90" />
+          </DataGrid.Columns>
+        </DataGrid>
+        <Border Grid.Row="1" Background="#F5F7F6" Padding="16">
+          <Grid ColumnDefinitions="*,Auto">
+            <TextBlock x:Name="CountText" VerticalAlignment="Center" Foreground="#657069" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="9">
+              <Button Classes="secondary" Content="✎ Editar" Click="Edit_OnClick" />
+              <Button Classes="danger" Content="Desactivar" Click="Deactivate_OnClick" />
+            </StackPanel>
+          </Grid>
+        </Border>
+      </Grid>
+    </Border>
+  </Grid>
+</UserControl>

@@ -1,0 +1,4 @@
+project_id = "inventario-escolar"
+
+[functions.create-user]
+verify_jwt = true

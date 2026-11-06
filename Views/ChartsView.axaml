@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="InventarioEscolar.Views.ChartsView">
+  <ScrollViewer>
+    <Grid ColumnDefinitions="*,*" ColumnSpacing="20">
+      <Border Classes="card">
+        <StackPanel Spacing="18">
+          <TextBlock Text="Activos por estado" FontSize="20" FontWeight="Bold" />
+          <StackPanel Spacing="7">
+            <Grid ColumnDefinitions="*,Auto"><TextBlock Text="Disponibles"/><TextBlock Grid.Column="1" x:Name="AvailableLabel" FontWeight="Bold"/></Grid>
+            <ProgressBar x:Name="AvailableBar" Height="18" Foreground="#159447" />
+          </StackPanel>
+          <StackPanel Spacing="7">
+            <Grid ColumnDefinitions="*,Auto"><TextBlock Text="Por revisar"/><TextBlock Grid.Column="1" x:Name="ReviewLabel" FontWeight="Bold"/></Grid>
+            <ProgressBar x:Name="ReviewBar" Height="18" Foreground="#E39B16" />
+          </StackPanel>
+          <StackPanel Spacing="7">
+            <Grid ColumnDefinitions="*,Auto"><TextBlock Text="En mantenimiento"/><TextBlock Grid.Column="1" x:Name="MaintenanceLabel" FontWeight="Bold"/></Grid>
+            <ProgressBar x:Name="MaintenanceBar" Height="18" Foreground="#2563EB" />
+          </StackPanel>
+          <StackPanel Spacing="7">
+            <Grid ColumnDefinitions="*,Auto"><TextBlock Text="Fuera de servicio"/><TextBlock Grid.Column="1" x:Name="OutLabel" FontWeight="Bold"/></Grid>
+            <ProgressBar x:Name="OutBar" Height="18" Foreground="#C62828" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+
+      <Border Grid.Column="1" Classes="card">
+        <StackPanel Spacing="18">
+          <TextBlock Text="Indicadores" FontSize="20" FontWeight="Bold" />
+          <Border Background="#EFF6F2" CornerRadius="9" Padding="17">
+            <Grid ColumnDefinitions="*,Auto">
+              <TextBlock Text="Unidades registradas" />
+              <TextBlock Grid.Column="1" x:Name="TotalLabel" FontSize="24" FontWeight="Bold" Foreground="#0B603A" />
+            </Grid>
+          </Border>
+          <Border Background="#EFF6F2" CornerRadius="9" Padding="17">
+            <Grid ColumnDefinitions="*,Auto">
+              <TextBlock Text="Ubicaciones" />
+              <TextBlock Grid.Column="1" x:Name="LocationsLabel" FontSize="24" FontWeight="Bold" Foreground="#0B603A" />
+            </Grid>
+          </Border>
+          <Border Background="#EFF6F2" CornerRadius="9" Padding="17">
+            <Grid ColumnDefinitions="*,Auto">
+              <TextBlock Text="Mantenimientos registrados" />
+              <TextBlock Grid.Column="1" x:Name="MaintenancesLabel" FontSize="24" FontWeight="Bold" Foreground="#0B603A" />
+            </Grid>
+          </Border>
+        </StackPanel>
+      </Border>
+    </Grid>
+  </ScrollViewer>
+</UserControl>

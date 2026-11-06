@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="InventarioEscolar.Views.MaintenanceView">
+  <Grid RowDefinitions="Auto,*">
+    <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,16">
+      <TextBox x:Name="SearchBox" Width="430" HorizontalAlignment="Left" PlaceholderText="Buscar activo o responsable..."
+               TextChanged="SearchBox_OnTextChanged" />
+      <Button x:Name="AddButton" Grid.Column="1" Classes="primary" Content="＋ Registrar mantenimiento" Click="Add_OnClick" />
+    </Grid>
+    <Border Grid.Row="1" Classes="card" Padding="0">
+      <Grid RowDefinitions="*,Auto">
+        <DataGrid x:Name="MaintenanceGrid" AutoGenerateColumns="False" IsReadOnly="True">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}" Width="120" />
+            <DataGridTextColumn Header="Activo" Binding="{Binding Activo}" Width="180" />
+            <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" Width="130" />
+            <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*" />
+            <DataGridTextColumn Header="Responsable" Binding="{Binding Responsable}" Width="180" />
+            <DataGridTextColumn Header="Resultado" Binding="{Binding Resultado}" Width="*" />
+          </DataGrid.Columns>
+        </DataGrid>
+        <Border Grid.Row="1" Background="#F5F7F6" Padding="16">
+          <TextBlock x:Name="CountText" Foreground="#657069" />
+        </Border>
+      </Grid>
+    </Border>
+  </Grid>
+</UserControl>

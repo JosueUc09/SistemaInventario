@@ -1,0 +1,80 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="InventarioEscolar.Views.DashboardView">
+  <ScrollViewer>
+    <StackPanel Spacing="22">
+      <StackPanel>
+        <TextBlock Text="Resumen general" FontSize="22" FontWeight="Bold" Foreground="#17231D" />
+        <TextBlock Text="Estado actual del inventario de la institución" Foreground="#657069" Margin="0,5,0,0" />
+      </StackPanel>
+
+      <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="18">
+        <Border Classes="card">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Total de activos" Foreground="#657069" />
+            <TextBlock x:Name="TotalText" Text="0" FontSize="31" FontWeight="Bold" Foreground="#0B603A" />
+          </StackPanel>
+        </Border>
+        <Border Grid.Column="1" Classes="card">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Disponibles" Foreground="#657069" />
+            <TextBlock x:Name="DisponibleText" Text="0" FontSize="31" FontWeight="Bold" Foreground="#159447" />
+          </StackPanel>
+        </Border>
+        <Border Grid.Column="2" Classes="card">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Por revisar" Foreground="#657069" />
+            <TextBlock x:Name="RevisarText" Text="0" FontSize="31" FontWeight="Bold" Foreground="#D68B00" />
+          </StackPanel>
+        </Border>
+        <Border Grid.Column="3" Classes="card">
+          <StackPanel Spacing="8">
+            <TextBlock Text="En mantenimiento" Foreground="#657069" />
+            <TextBlock x:Name="MantenimientoText" Text="0" FontSize="31" FontWeight="Bold" Foreground="#2563EB" />
+          </StackPanel>
+        </Border>
+      </Grid>
+
+      <Grid ColumnDefinitions="1.6*,1*" ColumnSpacing="20">
+        <Border Classes="card">
+          <StackPanel Spacing="15">
+            <TextBlock Text="Últimos códigos del inventario" FontSize="18" FontWeight="Bold" />
+            <DataGrid x:Name="RecentGrid" AutoGenerateColumns="False" IsReadOnly="True" Height="300">
+              <DataGrid.Columns>
+                <DataGridTextColumn Header="No. activo" Binding="{Binding NumeroActivo}" Width="140" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+                <DataGridTextColumn Header="Ubicación" Binding="{Binding Ubicacion.Nombre}" Width="*" />
+                <DataGridTextColumn Header="Estado" Binding="{Binding EstadoActivo.Nombre}" Width="150" />
+              </DataGrid.Columns>
+            </DataGrid>
+          </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Classes="card">
+          <StackPanel Spacing="16">
+            <TextBlock Text="Información del sistema" FontSize="18" FontWeight="Bold" />
+            <Border Background="#EFF6F2" CornerRadius="8" Padding="14">
+              <StackPanel Spacing="5">
+                <TextBlock Text="Equipo actual" FontSize="12" Foreground="#657069" />
+                <TextBlock x:Name="MachineText" FontWeight="SemiBold" />
+              </StackPanel>
+            </Border>
+            <Border Background="#EFF6F2" CornerRadius="8" Padding="14">
+              <StackPanel Spacing="5">
+                <TextBlock Text="Base de datos" FontSize="12" Foreground="#657069" />
+                <TextBlock Text="Supabase compartido" FontWeight="SemiBold" />
+              </StackPanel>
+            </Border>
+            <Border Background="#FFF7E5" CornerRadius="8" Padding="14">
+              <StackPanel Spacing="6">
+                <TextBlock Text="Revisiones sugeridas (cola FIFO)" FontWeight="SemiBold" />
+                <TextBlock x:Name="RevisionQueueText" Text="Sin datos" TextWrapping="Wrap" />
+              </StackPanel>
+            </Border>
+            <TextBlock Text="La cola representa revisiones temporales; los datos permanecen en Supabase." FontSize="11" TextWrapping="Wrap" Foreground="#657069" />
+          </StackPanel>
+        </Border>
+      </Grid>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="InventarioEscolar.Views.LoginWindow"
+        Title="Inventario Escolar - Iniciar sesión"
+        Width="980" Height="620"
+        MinWidth="850" MinHeight="560"
+        WindowStartupLocation="CenterScreen">
+  <Grid ColumnDefinitions="1.05*,1.35*">
+    <Border Background="#0B603A">
+      <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="330" Spacing="16">
+        <Border Width="112" Height="112" CornerRadius="56" Background="#FFFFFF22">
+          <TextBlock Text="IE" Foreground="White" FontSize="42" FontWeight="Bold"
+                     HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        <TextBlock Text="Inventario Escolar" Foreground="White" FontSize="30" FontWeight="Bold"
+                   HorizontalAlignment="Center" />
+        <TextBlock Text="Control centralizado de activos, usuarios y mantenimientos"
+                   Foreground="#D7EEE1" FontSize="15" TextAlignment="Center" TextWrapping="Wrap" />
+      </StackPanel>
+    </Border>
+
+    <Grid Grid.Column="1">
+      <Border Classes="card" Width="410" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="38">
+        <StackPanel Spacing="13">
+          <TextBlock Text="Bienvenido" FontSize="28" FontWeight="Bold" Foreground="#17231D" />
+          <TextBlock Text="Ingrese sus credenciales para continuar" Foreground="#657069" Margin="0,0,0,12" />
+          <TextBlock Text="Usuario" FontWeight="SemiBold" />
+          <TextBox x:Name="UsernameBox" PlaceholderText="Correo electrónico" />
+          <TextBlock Text="Contraseña" FontWeight="SemiBold" Margin="0,5,0,0" />
+          <TextBox x:Name="PasswordBox" PlaceholderText="Contraseña" PasswordChar="●" />
+          <TextBlock x:Name="StatusText" Foreground="#C62828" TextWrapping="Wrap" MinHeight="22" />
+          <Button Classes="primary" Content="Iniciar sesión" HorizontalContentAlignment="Center"
+                  Click="LoginButton_OnClick" Margin="0,8,0,0" />
+        </StackPanel>
+      </Border>
+    </Grid>
+  </Grid>
+</Window>

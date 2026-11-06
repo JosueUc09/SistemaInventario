@@ -1,0 +1,13 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="InventarioEscolar.Views.ConfirmWindow"
+        Width="470" Height="250" CanResize="False" WindowStartupLocation="CenterOwner">
+  <StackPanel Margin="28" Spacing="14" VerticalAlignment="Center">
+    <TextBlock x:Name="TitleText" FontSize="22" FontWeight="Bold" />
+    <TextBlock x:Name="MessageText" TextWrapping="Wrap" />
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0,12,0,0">
+      <Button Classes="secondary" Content="Cancelar" Click="No_OnClick" />
+      <Button Classes="danger" Content="Confirmar" Click="Yes_OnClick" />
+    </StackPanel>
+  </StackPanel>
+</Window>

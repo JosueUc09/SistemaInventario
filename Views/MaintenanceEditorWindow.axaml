@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="InventarioEscolar.Views.MaintenanceEditorWindow"
+        Title="Registrar mantenimiento" Width="620" Height="610" CanResize="False" WindowStartupLocation="CenterOwner">
+  <ScrollViewer>
+    <StackPanel Margin="30" Spacing="10">
+      <TextBlock Text="Registrar mantenimiento" FontSize="24" FontWeight="Bold" />
+      <TextBlock Text="Esta bitácora permite documentar el mantenimiento realizado a cada activo." Foreground="#657069" TextWrapping="Wrap" Margin="0,0,0,8" />
+      <TextBlock Text="Activo" FontWeight="SemiBold" />
+      <ComboBox x:Name="AssetCombo" DisplayMemberBinding="{Binding Nombre}" />
+      <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+        <StackPanel Spacing="7">
+          <TextBlock Text="Fecha" FontWeight="SemiBold" />
+          <TextBox x:Name="DateBox" PlaceholderText="dd/MM/yyyy" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Spacing="7">
+          <TextBlock Text="Tipo" FontWeight="SemiBold" />
+          <ComboBox x:Name="TypeCombo" SelectedIndex="0">
+            <ComboBoxItem Content="Preventivo" />
+            <ComboBoxItem Content="Correctivo básico" />
+            <ComboBoxItem Content="Revisión" />
+          </ComboBox>
+        </StackPanel>
+      </Grid>
+      <TextBlock Text="Descripción" FontWeight="SemiBold" Margin="0,6,0,0" />
+      <TextBox x:Name="DescriptionBox" AcceptsReturn="True" Height="80" TextWrapping="Wrap" />
+      <TextBlock Text="Responsable" FontWeight="SemiBold" Margin="0,6,0,0" />
+      <TextBox x:Name="ResponsibleBox" />
+      <TextBlock Text="Resultado y observaciones" FontWeight="SemiBold" Margin="0,6,0,0" />
+      <TextBox x:Name="ResultBox" AcceptsReturn="True" Height="70" TextWrapping="Wrap" />
+      <TextBlock x:Name="StatusText" Foreground="#C62828" MinHeight="20" />
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+        <Button Classes="secondary" Content="Cancelar" Click="Cancel_OnClick" />
+        <Button Classes="primary" Content="Guardar" Click="Save_OnClick" />
+      </StackPanel>
+    </StackPanel>
+  </ScrollViewer>
+</Window>

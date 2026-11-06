@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="InventarioEscolar.Views.InventoryView">
+  <Grid RowDefinitions="Auto,*">
+    <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,16">
+      <TextBox x:Name="SearchBox" Width="430" HorizontalAlignment="Left"
+               PlaceholderText="Buscar por serie, activo, nombre o ubicación..."
+               TextChanged="SearchBox_OnTextChanged" />
+      <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="9">
+        <Button Classes="secondary" Content="Actualizar" Click="Refresh_OnClick" />
+        <Button x:Name="AddButton" Classes="primary" Content="＋ Agregar activo" Click="Add_OnClick" />
+      </StackPanel>
+    </Grid>
+
+    <Border Grid.Row="1" Classes="card" Padding="0">
+      <Grid RowDefinitions="*,Auto">
+        <DataGrid x:Name="InventoryGrid" AutoGenerateColumns="False" IsReadOnly="True"
+                  SelectionMode="Single" Margin="2">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="No. serie" Binding="{Binding NumeroSerie}" Width="130" />
+            <DataGridTextColumn Header="No. activo" Binding="{Binding NumeroActivo}" Width="130" />
+            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="150" />
+            <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*" />
+            <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="90" />
+            <DataGridTextColumn Header="Categoría" Binding="{Binding Categoria.Nombre}" Width="145" />
+            <DataGridTextColumn Header="Ubicación" Binding="{Binding Ubicacion.Nombre}" Width="180" />
+            <DataGridTextColumn Header="Estado" Binding="{Binding EstadoActivo.Nombre}" Width="145" />
+          </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="1" Background="#F5F7F6" Padding="16">
+          <Grid ColumnDefinitions="*,Auto">
+            <TextBlock x:Name="CountText" VerticalAlignment="Center" Foreground="#657069" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="9">
+              <Button x:Name="EditButton" Classes="secondary" Content="✎ Editar" Click="Edit_OnClick" />
+              <Button x:Name="DeleteButton" Classes="danger" Content="Eliminar" Click="Delete_OnClick" />
+            </StackPanel>
+          </Grid>
+        </Border>
+      </Grid>
+    </Border>
+  </Grid>
+</UserControl>

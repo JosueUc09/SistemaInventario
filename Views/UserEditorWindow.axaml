@@ -1,0 +1,26 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="InventarioEscolar.Views.UserEditorWindow"
+        Title="Usuario" Width="570" Height="610" CanResize="False" WindowStartupLocation="CenterOwner">
+  <ScrollViewer>
+    <StackPanel Margin="30" Spacing="10">
+      <TextBlock x:Name="TitleText" Text="Agregar usuario" FontSize="24" FontWeight="Bold" />
+      <TextBlock Text="La contraseña se administra en Supabase Auth y nunca se guarda en la aplicación."
+                 Foreground="#657069" TextWrapping="Wrap" Margin="0,0,0,8" />
+      <TextBlock Text="Nombre completo" FontWeight="SemiBold" />
+      <TextBox x:Name="NameBox" />
+      <TextBlock Text="Correo" FontWeight="SemiBold" Margin="0,6,0,0" />
+      <TextBox x:Name="EmailBox" />
+      <TextBlock Text="Rol" FontWeight="SemiBold" Margin="0,6,0,0" />
+      <ComboBox x:Name="RoleCombo" DisplayMemberBinding="{Binding Nombre}" />
+      <TextBlock x:Name="PasswordLabel" Text="Contraseña" FontWeight="SemiBold" Margin="0,6,0,0" />
+      <TextBox x:Name="PasswordBox" PasswordChar="●" PlaceholderText="Mínimo 8 caracteres" />
+      <CheckBox x:Name="ActiveCheck" Content="Usuario activo" IsChecked="True" Margin="0,7,0,0" />
+      <TextBlock x:Name="StatusText" Foreground="#C62828" TextWrapping="Wrap" MinHeight="20" />
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+        <Button Classes="secondary" Content="Cancelar" Click="Cancel_OnClick" />
+        <Button Classes="primary" Content="Guardar" Click="Save_OnClick" />
+      </StackPanel>
+    </StackPanel>
+  </ScrollViewer>
+</Window>

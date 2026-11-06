@@ -1,0 +1,10 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="InventarioEscolar.Views.MessageWindow"
+        Width="470" Height="240" CanResize="False" WindowStartupLocation="CenterOwner">
+  <StackPanel Margin="28" Spacing="14" VerticalAlignment="Center">
+    <TextBlock x:Name="TitleText" FontSize="22" FontWeight="Bold" />
+    <TextBlock x:Name="MessageText" TextWrapping="Wrap" />
+    <Button Classes="primary" Content="Aceptar" HorizontalAlignment="Right" Click="Accept_OnClick" Margin="0,12,0,0" />
+  </StackPanel>
+</Window>

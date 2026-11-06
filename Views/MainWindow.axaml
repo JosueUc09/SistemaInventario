@@ -1,0 +1,68 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="InventarioEscolar.Views.MainWindow"
+        Title="Sistema de Inventario Escolar"
+        Width="1360" Height="820"
+        MinWidth="1120" MinHeight="680"
+        WindowStartupLocation="CenterScreen">
+  <Window.Styles>
+    <Style Selector="Button.nav">
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="HorizontalContentAlignment" Value="Left" />
+      <Setter Property="Padding" Value="15,13" />
+      <Setter Property="CornerRadius" Value="8" />
+      <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style Selector="Button.nav:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#FFFFFF20" />
+    </Style>
+  </Window.Styles>
+
+  <Grid ColumnDefinitions="270,*">
+    <Border Background="#0B603A">
+      <Grid RowDefinitions="Auto,*,Auto" Margin="22,24">
+        <StackPanel HorizontalAlignment="Center" Spacing="7">
+          <Border Width="76" Height="76" CornerRadius="38" Background="#FFFFFF24">
+            <TextBlock Text="IE" Foreground="White" FontSize="28" FontWeight="Bold"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+          </Border>
+          <TextBlock Text="Inventario Escolar" Foreground="White" FontSize="18" FontWeight="Bold" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,45,0,0" Spacing="8">
+          <Button Content="⌂   Inicio" Classes="nav" Click="Inicio_OnClick" />
+          <Button x:Name="UsuariosButton" Content="♙   Usuarios" Classes="nav" Click="Usuarios_OnClick" />
+          <Button Content="☷   Administrar inventario" Classes="nav" Click="Inventario_OnClick" />
+          <Button Content="⚒   Mantenimientos" Classes="nav" Click="Mantenimientos_OnClick" />
+          <Button x:Name="AuditoriaButton" Content="▤   Auditoría" Classes="nav" Click="Auditoria_OnClick" />
+          <Button Content="◔   Gráficos" Classes="nav" Click="Graficos_OnClick" />
+        </StackPanel>
+
+        <Button Grid.Row="2" Content="↪   Cerrar sesión" Foreground="#FFB4AB" Background="Transparent"
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="14,12"
+                Click="CerrarSesion_OnClick" />
+      </Grid>
+    </Border>
+
+    <Grid Grid.Column="1" RowDefinitions="78,*">
+      <Border Background="White" BorderBrush="#E2E6E4" BorderThickness="0,0,0,1">
+        <Grid ColumnDefinitions="*,Auto" Margin="28,0">
+          <TextBlock x:Name="PageTitle" Text="Inicio" FontSize="24" FontWeight="Bold"
+                     VerticalAlignment="Center" Foreground="#17231D" />
+          <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Spacing="12">
+            <StackPanel VerticalAlignment="Center">
+              <TextBlock x:Name="CurrentUserText" FontWeight="SemiBold" HorizontalAlignment="Right" />
+              <TextBlock x:Name="CurrentRoleText" FontSize="12" Foreground="#657069" HorizontalAlignment="Right" />
+            </StackPanel>
+            <Border Width="43" Height="43" CornerRadius="22" Background="#F0C83C">
+              <TextBlock Text="👤" FontSize="21" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+          </StackPanel>
+        </Grid>
+      </Border>
+      <ContentControl x:Name="PageContent" Grid.Row="1" Margin="28" />
+    </Grid>
+  </Grid>
+
+</Window>

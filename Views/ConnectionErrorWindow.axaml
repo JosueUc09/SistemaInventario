@@ -1,0 +1,18 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="InventarioEscolar.Views.ConnectionErrorWindow"
+        Title="No se pudo conectar"
+        Width="620" Height="390" WindowStartupLocation="CenterScreen">
+  <Border Classes="card" Margin="38">
+    <StackPanel Spacing="14" VerticalAlignment="Center">
+      <TextBlock Text="No se pudo configurar Supabase" FontSize="24" FontWeight="Bold" Foreground="#C62828" />
+      <TextBlock Text="Revise que appsettings.json contenga la URL y la clave publicable correctas del proyecto Supabase."
+                 TextWrapping="Wrap" FontSize="14" />
+      <Border Background="#F3F4F4" CornerRadius="7" Padding="12">
+        <TextBlock x:Name="ErrorText" TextWrapping="Wrap" FontFamily="Consolas" FontSize="12" />
+      </Border>
+      <TextBlock Text="Después de corregir la configuración, cierre y vuelva a abrir la aplicación." Foreground="#657069" />
+      <Button Classes="primary" Content="Cerrar" HorizontalAlignment="Left" Click="Close_OnClick" />
+    </StackPanel>
+  </Border>
+</Window>
